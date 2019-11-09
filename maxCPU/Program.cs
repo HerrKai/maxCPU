@@ -10,8 +10,20 @@ namespace maxCPU
     {
         static void Main(string[] args)
         {
-            Console.Write(isPrimeNumber(7));
+            for (int i = 0; i < 20; i++)
+            {
+                Task.Run(() => findPrimeNubers());
+            }
             Console.ReadKey();
+        }
+        static void findPrimeNubers()
+        {
+            int counter = 3;
+            while (true)
+            {
+                isPrimeNumber(counter);
+                counter++;
+            }
         }
         static bool isPrimeNumber(int argTarget)
         {
