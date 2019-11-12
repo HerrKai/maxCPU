@@ -14,11 +14,22 @@ namespace maxCPU
         /// <param name="args">An array holding additional parameters</param>
         static void Main(string[] args)
         {
+            Console.Title = "maxCPU";
+            Console.CursorVisible = false;
             for (int i = 0; i < 100; i++)
             {
                 Task.Run(() => findPrimeNubers());
             }
-            Console.ReadKey();
+            bool skipFirstCheck = true;
+            while (skipFirstCheck || Console.ReadKey().Key != ConsoleKey.End)
+            {
+                if (skipFirstCheck)
+                {
+                    skipFirstCheck = false;
+                }
+                Console.Clear();
+                Console.Write("Press the 'END' button to end the application.");
+            }
         }
 
         /// <summary>
